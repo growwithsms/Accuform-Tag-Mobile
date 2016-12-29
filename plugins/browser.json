@@ -1,0 +1,67 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.collectquotesave"
+        }
+    }
+}

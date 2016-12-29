@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        
+        <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        
+        <title>Collect, Quote, and Save!</title>
+    </head>
+    <body>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--        <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>-->
+
+        <div data-role="page" id="home">
+            <div data-role="header" class="online-header">
+                <a id="history-button" href="#history" class="ui-link ui-btn-left ui-btn ui-shadow ui-corner-all" data-role="button" role="button">History</a>
+                <h1 class="onlineH1">Collect, Quote, and Save!</h1>
+                <h1 class="offlineH1" style="display: none">Collect, Quote, and Save! - OFFLINE MODE</h1>
+                <a id="clear-main-screen" class="ui-link ui-btn-right ui-btn ui-shadow ui-corner-all" data-role="button" role="button">Clear</a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <div class="ui-field-contain">
+                    <label for="sales_person_name">Your Name:</label>
+                    <input type="text" id="sales_person_name" class="db-prefill persistent" data-db-table="settings" data-db-id="1" required="required">
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="sales_person_email">Your Email</label>
+                    <input type="email" id="sales_person_email" class="db-prefill persistent" data-db-table="settings" data-db-id="2" required="required">
+                </div>
+
+                <div class="ui-field-contain distributor">
+                    <label for="distributor">Distributor:</label>
+                    <input type="text" id="distributor" class="db-prefill" data-db-table="settings" data-db-id="3" data-db-reference="" required="required">
+<!--                    <fieldset data-role="controlgroup" data-type="vertical">
+                        <input id="distributor" data-type="search" class="db-prefill" data-db-table="settings" data-db-id="3" data-db-reference="" required="required">
+                        <ul id="autocomplete-distributor" data-role="listview" data-inset="true" data-filter="true" data-input="#distributor"></ul>
+                    </fieldset>-->
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="distributor_contact">Distributor Contact:</label>
+                    <input type="text" id="distributor_contact"  class="db-prefill" data-db-table="settings" data-db-id="4" required="required" placeholder="Sales Person">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="distributor_email">Distributor Email:</label>
+                    <input type="email" id="distributor_email"  class="db-prefill" data-db-table="settings" data-db-id="5" required="required">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="end_user">End-User:</label>
+                    <input type="text" id="end_user"  class="db-prefill" data-db-table="settings" data-db-id="6">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="end_user_contact">End-User Contact:</label>
+                    <input type="text" id="end_user_contact"  class="db-prefill" data-db-table="settings" data-db-id="7">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="end_user_email">End-User Email:</label>
+                    <input type="email" id="end_user_email"  class="db-prefill" data-db-table="settings" data-db-id="8">
+                </div>
+
+                <p id="tags-p">TAGS <a href="#tag" data-transition="fade" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right ui-btn-inline add-tag add-first-tag">ADD TAG</a></p>
+
+                <div id="tags-container"></div><!-- End of #tags-container -->
+
+                <a href="#" class="hidden ui-btn ui-input-btn ui-corner-all ui-shadow" id="submit-quote" style="display: none">SUBMIT QUOTE</a>
+                
+                <div data-role="popup" id="delete-tag-popup" data-dismissible="false" style="max-width:400px;">
+                    <div role="main" class="ui-content">
+                        <h3 class="ui-title">Are you sure you want to delete tag <span id="delete-tag-name"></span>?</h3>
+                        <p>
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">Cancel</a>
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-delete ui-btn-inline confirm-tag-delete" data-delete-tag-id="">Delete</a>
+                        </p>
+                        <p class="error-message" style="display: none;">Error Message</p>
+                    </div>
+                </div>
+                
+            </div><!-- /content -->
+
+            <div data-role="footer" data-id="footer">
+                <img src="img/footer.png" height="40" />
+            </div><!-- /footer -->
+        </div><!-- /page #home -->
+
+        <div data-role="page" id="tag">
+            <div data-role="header" data-add-back-btn="true" class="online-header">
+                <a data-rel="back">Back</a>
+                <h1 id="add-tag-header">Add Tag<span class="offlineH1" style="display: none"> - OFFLINE MODE</span></h1>
+                <h1 id="edit-tag-header" style="display: none;">Edit Tag<span class="offlineH1" style="display: none"> - OFFLINE MODE</span></h1>
+                <input type="hidden" id="current_tag_id" />
+                <input type="hidden" id="tag_photo_front" />
+                <input type="hidden" id="tag_photo_back" />
+                <a id="clear-tag-data" class="ui-link ui-btn-right ui-btn ui-shadow ui-corner-all" data-role="button" role="button">Clear</a>
+            </div><!-- /header -->    
+            
+            <div role="main" class="ui-content">
+                <div class="ui-field-contain">
+                    <label for="tag-name">Tag Name:</label>
+                    <input type="text" id="tag-name" placeholder="Ex: Plastic Danger Tag">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="tag-material">Material:</label>
+                    <select name="tag-material" id="tag-material" data-native-menu="false" required="required">
+                        <option value="" disabled selected class="select-placeholder" data-placeholder="true">Choose One</option>
+                    </select>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="tag-name">Size:</label>
+                    <input id="size-height" type="number" placeholder="Height" data-wrapper-class="ui-btn-inline" style="width: 100px !important;" required="required">
+                    <div style="display: inline-block;" id="size-h-w-separator">X</div>
+                    <input id="size-width" type="number" placeholder="Width" data-wrapper-class="ui-btn-inline" style="width: 100px !important;" required="required">
+                    <fieldset data-role="controlgroup" data-type="horizontal" id="size" style="" data-mini="true">
+                        <input type="radio" name="tag-size-unit" id="tag-size-unit-in" data-value="in" checked="checked">
+                        <label for="tag-size-unit-in">in</label>
+                        <input type="radio" name="tag-size-unit" id="tag-size-unit-cm" data-value="cm">
+                        <label for="tag-size-unit-cm">cm</label>
+                        <input type="radio" name="tag-size-unit" id="tag-size-unit-mm" data-value="mm">
+                        <label for="tag-size-unit-mm">mm</label>
+                    </fieldset>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="quantity">Order Quantity:</label>
+                    <input type="text" id="quantity" required="required">
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="quantity">Annual Usage:</label>
+                    <input type="text" id="annual-usage">
+                </div>
+
+                <div class="ui-field-contain">
+                    <label>Photos <small>(tap to upload pictures)</small>:</label>
+                    <fieldset>
+                        <a href="#choose-picture" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-shadow ui-corner-all take-picture"><img src="img/camera_front.png" height="80" width="80" id="choose-picture-front"/></a>
+                        <a href="#choose-picture" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-shadow ui-corner-all take-picture"><img src="img/camera_back.png" height="80" width="80" id="choose-picture-back"/></a>
+                    </fieldset>
+                </div>
+                
+                <div data-role="popup" id="choose-picture" data-dismissible="false" style="max-width:400px;">
+                     <div data-role="header" data-theme="a">
+                        <h1>Picture</h1>
+                    </div>
+                    <div role="main" class="ui-content">
+                        <h3 class="ui-title">Choose picture for this tag</h3>
+                        <p>
+                            <a style="margin-right: 5px;" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b choose-picture" id="choose-picture-existent"  data-transition="flow">Photo Library</a>
+                            <a style="margin-left: 5px;" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b choose-picture" id="choose-picture-new"  data-transition="flow">Take Photo</a>
+                        </p>
+                        <p>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-rel="back">Cancel</a>
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                        </p>
+                        <p class="error-message" style="display: none;">Error Message</p>
+                    </div>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <fieldset>
+                        <label for="tag-finishing">Finishing:</label>
+                        <select name="tag-finishing" id="tag-finishing" multiple="multiple" data-native-menu="false">
+                            <option></option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                    <div data-role="rangeslider" id="tag-finishing-range" style="display: none;">
+                        <input type="range" name="tag-finishing-range-start" id="tag-finishing-range-start" min="1" max="29999" value="1">
+                        <input type="range" name="tag-finishing-range-end" id="tag-finishing-range-end" min="1" max="29999" value="29999">
+                    </div>
+                    </fieldset>
+                </div>
+                
+                <div class="ui-field-contain">
+                    <label for="tag-notes">Notes For Quote Team:</label>
+                    <textarea id="tag-notes" maxlength="500"></textarea>
+                </div>
+                
+                <a href="#tag" data-transition="fade" id="save-tag" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-center add-tag">SUBMIT</a>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-id="footer">
+                <img src="img/footer.png" height="40" />
+            </div><!-- /footer -->
+        </div><!-- /page #tag -->
+        
+        <div data-role="page" id="history">
+            <div data-role="header" data-add-back-btn="true">
+                <a data-rel="back">Back</a>
+                <h1>History</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <ul data-role="listview" id="quotes-list"></ul><!-- End of quotes-list -->
+                <div style="margin-top: 25px;">
+                    <a href="#" data-transition="fade" id="load-quotes" class="ui-btn ui-corner-all" style="display: none">LOAD MORE</a>
+                </div>
+            </div><!-- End of .main -->
+        </div><!-- End of #history -->
+    </body>
+</html>
