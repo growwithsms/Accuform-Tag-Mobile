@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.collectquotesave" version="1.1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.collectquotesave" version="1.1.2">
   <name>Collect, Quote, and Save!</name>
   <description>Accuform tag app</description>
   
