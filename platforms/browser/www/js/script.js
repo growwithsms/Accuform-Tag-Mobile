@@ -1,5 +1,5 @@
 // Define global variables
-var host = document.location.hostname === "localhost" ? "http://localhost:8087/" : "http://api.collectquotesave.com/";
+var host = document.location.hostname === "localhost" ? "//localhost:3000/" : "https://api.collectquotesave.com/";
 var db;
 var tag_picture_element = null;
 var harcodedMaterials = false;
