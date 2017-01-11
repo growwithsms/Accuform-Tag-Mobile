@@ -20,9 +20,39 @@
 -->
 # Release Notes
 
+### 1.4.1 (Dec 07, 2016)
+* [CB-12224](https://issues.apache.org/jira/browse/CB-12224) Updated version and RELEASENOTES.md for release 1.4.1
+* [CB-10701](https://issues.apache.org/jira/browse/CB-10701) [CB-7117](https://issues.apache.org/jira/browse/CB-7117) android: Add manual test to check getting metadata
+* [CB-10489](https://issues.apache.org/jira/browse/CB-10489) Fix for MediaFile.getFormatData / audio recording support
+* [CB-10488](https://issues.apache.org/jira/browse/CB-10488) Fix for MediaFile.getFormatData
+* [CB-11996](https://issues.apache.org/jira/browse/CB-11996) Added a new manual test to capture multiple images
+* [CB-11995](https://issues.apache.org/jira/browse/CB-11995) (android) Do not pass a file URI to the camera
+* [CB-11917](https://issues.apache.org/jira/browse/CB-11917) - Remove pull request template checklist item: "iCLA has been submitted…"
+* [CB-11832](https://issues.apache.org/jira/browse/CB-11832) Incremented plugin version.
+
+### 1.4.0 (Sep 08, 2016)
+* Add mandatory **iOS 10** privacy description for microphone
+* [CB-11795](https://issues.apache.org/jira/browse/CB-11795) Add 'protective' entry to cordovaDependencies
+* [CB-11821](https://issues.apache.org/jira/browse/CB-11821) (ios) Add mandatory **iOS 10** privacy description
+* Plugin uses `Android Log class` and not `Cordova LOG class`
+* Add badges for paramedic builds on Jenkins
+* [CB-11396](https://issues.apache.org/jira/browse/CB-11396) - Audio Media Capture Crashes if app stores file on external storage
+* Add pull request template.
+* [CB-11212](https://issues.apache.org/jira/browse/CB-11212) **iOS**: Explicitly set the bundle for images
+* [CB-10554](https://issues.apache.org/jira/browse/CB-10554) Implementing plugin `save/restore` API for Android
+* [CB-11165](https://issues.apache.org/jira/browse/CB-11165) removed peer dependency
+* [CB-10996](https://issues.apache.org/jira/browse/CB-10996) Adding front matter to README.md
+
+### 1.3.0 (Apr 15, 2016)
+* Replace `PermissionHelper.java` with `cordova-plugin-compat`
+* CB-10670, [CB-10994](https://issues.apache.org/jira/browse/CB-10994) **Android**, Marshmallow permissions
+* [CB-10720](https://issues.apache.org/jira/browse/CB-10720) Fixing README for display on Cordova website
+* [CB-10636](https://issues.apache.org/jira/browse/CB-10636) Add `JSHint` for plugins
+* [CB-10690](https://issues.apache.org/jira/browse/CB-10690) **windows**, fix crash when user cancels/closes photo app
+
 ### 1.2.0 (Jan 15, 2016)
-* CB-10100 updated file dependency to not grab new majors
-* CB-8863 Fix block usage of self
+* [CB-10100](https://issues.apache.org/jira/browse/CB-10100) updated file dependency to not grab new majors
+* [CB-8863](https://issues.apache.org/jira/browse/CB-8863) Fix block usage of self
 
 ### 1.1.0 (Nov 18, 2015)
 * [CB-10035](https://issues.apache.org/jira/browse/CB-10035) Updated `RELEASENOTES` to be newest to oldest
