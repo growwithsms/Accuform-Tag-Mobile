@@ -1353,7 +1353,7 @@ function wsCompleteRequest(){
     })
     .done(function(data) {
         console.log(data);
-        navigator.notification.alert("Quote was sent successfully to "+sales_person_email+". Data was cleared and a new one can be created.", function(){}, "Success");
+        navigator.notification.alert("Quote was sent successfully to tags@accuform.com. Your quote will be emailed to you shortly.", function(){}, "Success");
         clearAllData();
     })
     .fail(function( jqXHR, textStatus ) {
